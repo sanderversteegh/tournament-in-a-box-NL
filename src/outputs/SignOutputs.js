@@ -32,6 +32,9 @@ export function MakeLocationSignsPdf(event) {
     "Coaches meeting",
     "Volunteer Room",
     "Practice table",
+    "Quiet room",
+    "Team registration",
+    "No teams allowed past here"
   ];
   let doc = new PdfDoc(event.pageFormat, event.title, true);
   event.sessions
