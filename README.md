@@ -1,3 +1,6 @@
+Dit is een nederlandse vertaling van het tournement-in-a-box project. Verder is het een copy van het harde werk van de first-australia/tournament-in-a-box. 
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 # tournament-in-a-box
 
 FIRST LEGO League regional director's tool for simplifying tournament operations.
