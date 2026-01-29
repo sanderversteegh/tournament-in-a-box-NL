@@ -13,6 +13,9 @@ Lokaal (windows):
 7. nvm use 16.20.2
 8. yarn start
 
+In github:
+https://humble-space-tribble-jr7g5qj4gjg3p6g-3000.app.github.dev/
+
 # tournament-in-a-box
 
 FIRST LEGO League regional director's tool for simplifying tournament operations.
