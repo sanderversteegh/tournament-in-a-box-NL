@@ -32,21 +32,21 @@ export class EventParams {
     ["Champion's Award"],
     [
       "Coach/Mentor Award",
-      "Robot Performance Award",
-      "Robot Design Award",
-      "Innovation Project Award",
+      "Robotprestatie Award",
+      "Robotontwerp Award",
+      "Innovatieproject Award",
       "Core Values Award",
       "Champion's Award",
     ],
     [
-      "Motivate Award",
+      "Jury Award",
       "Rising All-Star Award",
       "Engineering Excellence Award",
       "Breakthrough Award",
       "Coach/Mentor Award",
-      "Robot Performance Award",
-      "Robot Design Award",
-      "Innovation Project Award",
+      "Robotprestatie Award",
+      "Robotontwerp Award",
+      "Innovatieproject Award",
       "Core Values Award",
       "Champion's Award",
     ],
@@ -596,7 +596,7 @@ export class EventParams {
   getSessionDataGrid(id, pdf = false) {
     let session = this.getSession(id);
     let grid = [];
-    let cols = [{ value: "#" }, { value: "Time" }];
+    let cols = [{ value: "#" }, { value: "Tijd" }];
     session.locations.forEach((x) => cols.push({ value: x }));
     grid.push(cols);
 
@@ -692,22 +692,22 @@ export class EventParams {
       if (this.sessions[i].type === TYPES.BREAK) continue;
       grid[0].push({ colSpan: compact ? 2 : 3, value: this.sessions[i].name });
     }
-    grid[0].push({ value: "Min. Travel time" });
+    grid[0].push({ value: "Min. Reistijd" });
     if (usesSurrogates)
       grid[0].push({ colSpan: compact ? 2 : 3, value: "Surrogate" });
-    grid[1] = [{ value: "#" }, { value: "Name" }];
+    grid[1] = [{ value: "#" }, { value: "Naam" }];
     for (let i = 0; i < this.sessions.length; i++) {
       if (this.sessions[i].type === TYPES.BREAK) continue;
       for (let j = 0; j < this.sessions[i].instances; j++) {
         if (!compact) grid[1].push({ value: "#" });
-        grid[1].push({ value: "Time" });
+        grid[1].push({ value: "Tijd" });
         grid[1].push({ value: "Loc" });
       }
     }
     grid[1].push({ value: "" });
     if (usesSurrogates) {
       if (!compact) grid[1].push({ value: "#" });
-      grid[1].push({ value: "Time" });
+      grid[1].push({ value: "Tijd" });
       grid[1].push({ value: "Loc" });
     }
 
@@ -981,7 +981,7 @@ export class EventParams {
 
   set nDays(value) {
     let A = this.days;
-    while (A.length < value) A.push("Day " + (this.days.length + 1));
+    while (A.length < value) A.push("Dag " + (this.days.length + 1));
     while (A.length > value) A.pop();
     this.days = A;
   }

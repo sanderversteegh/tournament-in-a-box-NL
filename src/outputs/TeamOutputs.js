@@ -12,10 +12,10 @@ export function MakeTeamListPDF(event) {
   t.widths[3] = 50;
   t.body = [];
   let header = [];
-  header.push({ text: 'Number', alignment: 'center' });
-  header.push({ text: 'Name' });
-  header.push({ text: 'Affiliation' });
-  header.push({ text: 'Pit num' });
+  header.push({ text: 'Nummer', alignment: 'center' });
+  header.push({ text: 'Naam' });
+  header.push({ text: 'Referentie' });
+  header.push({ text: 'Teamplek #' });
   t.body.push(header);
 
   event.teams.forEach(x => {
@@ -27,10 +27,10 @@ export function MakeTeamListPDF(event) {
     t.body.push(row);
   });
 
-  doc.addContent({ text: 'Team List', style: 'header2', margin: [0, 10] });
+  doc.addContent({ text: 'Team Lijst', style: 'header2', margin: [0, 10] });
   doc.addContent({ table: t, layout: 'lightHorizontalLines' });
 
-  doc.filename = 'team-list'.replace(/ /g, '-');
+  doc.filename = 'team-lijst'.replace(/ /g, '-');
   return doc;
 }
 
@@ -38,7 +38,7 @@ export function MakeAllTeamsPDF(event) {
   let doc = new PdfDoc(event.pageFormat, event.title, true);
 
   doc.addContent({
-    text: 'All Team Schedule',
+    text: 'Alle Teams Planning',
     style: 'header2',
     margin: [0, 10]
   });
@@ -86,7 +86,7 @@ export function MakeAllTeamsPDF(event) {
     alignment: 'center'
   });
 
-  doc.filename = 'all-teams-schedule'.replace(/ /g, '-');
+  doc.filename = 'alle-teams-planning'.replace(/ /g, '-');
   return doc;
 }
 
@@ -104,7 +104,7 @@ export function MakeIndivTeamsPDF(event) {
   });
   // Delete the last page break
   doc.chomp();
-  doc.filename = 'individual-team-schedule'.replace(/ /g, '-');
+  doc.filename = 'individueel-team-planning'.replace(/ /g, '-');
   return doc;
 }
 
@@ -123,9 +123,9 @@ function teamPage(event, team) {
   }
   t.body = [];
   t.body[0] = [];
-  t.body[0][0] = { text: 'Time (#)' };
-  t.body[0][1] = { text: 'Event' };
-  t.body[0][2] = { text: 'Location' };
+  t.body[0][0] = { text: 'Tijd (#)' };
+  t.body[0][1] = { text: 'Activiteit' };
+  t.body[0][2] = { text: 'Locatie' };
   for (let i = 0; i < schedule.length; i++) {
     // If it's a break that applies to specific sessions, don't put it in.
     if (

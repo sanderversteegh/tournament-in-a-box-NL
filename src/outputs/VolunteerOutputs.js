@@ -39,9 +39,9 @@ export function MakeSigninPdf(event) {
   t.widths[2] = 200;
   t.body = [];
   let header = [];
-  header.push({ text: 'Name' });
-  header.push({ text: 'Role/s' });
-  header.push({ text: 'Signed in?' });
+  header.push({ text: 'Naam' });
+  header.push({ text: 'Rollen' });
+  header.push({ text: 'Aangemeld?' });
   t.body.push(header);
 
   // Reorganise volunteers into a dict.
@@ -70,7 +70,7 @@ export function MakeSigninPdf(event) {
     });
 
   doc.addContent({
-    text: 'Volunteer Sign-on sheet',
+    text: 'Vrijwiligers Aanmeldingsformulier',
     style: 'header2',
     margin: [0, 10]
   });
@@ -103,6 +103,6 @@ export function MakeSigninPdf(event) {
     }
     doc.addContent({table: t, layout: 'lightHorizontalLines'});
     */
-  doc.filename = 'vol-sign-in'.replace(/ /g, '-');
+  doc.filename = 'vrijwiligers-aanmeldingsformulier'.replace(/ /g, '-');
   return doc;
 }

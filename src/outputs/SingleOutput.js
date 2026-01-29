@@ -63,28 +63,28 @@ export class SingleOutput {
 
   static funcNames = [
     // Must be the same order as "func" above
-    'Judging schedule',
+    'Jury planning',
     // () => this.getPDF(MakeCoreValuesAllocationsPDF(event), "", this.event.nJudges + 2),
-    'Match schedule',
-    'Practice match schedule',
+    'Match planning',
+    'Oefen wedstrijd planning',
     // "Filler match schedule",
     // "Filler practice match schedule",
-    'Team list',
-    'Day schedule',
-    'All-team schedule',
-    'Individual team schedule',
-    'Pit signs',
-    'Volunteer list',
-    'Location signs',
-    'Volunteer sign in sheet',
-    'Practice table sign up sheet',
-    'Award certificates',
-    'Participation certificates',
+    'Team lijst',
+    'Dag planning',
+    'Alle team planningen',
+    'Individueel team planning',
+    'Teamplek borden',
+    'Vrijwilligers lijst',
+    'Locatie borden',
+    'Vrijwilligers aanmaald formulier',
+    'Oefentafel opgeef formulier',
+    'Award certificaten',
+    'Deelnemers certificaten',
     'Scoring system import file',
     'App import file',
-    'National sponsors',
-    'Local sponsors',
-    'Closing ceremony powerpoint'
+    'Nationale sponsors',
+    'Locale sponsors',
+    'Afsluiting powerpoint'
   ];
 
   get(idx) {

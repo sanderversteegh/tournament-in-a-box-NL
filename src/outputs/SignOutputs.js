@@ -26,15 +26,15 @@ export function MakePitSignsPdf(event) {
 export function MakeLocationSignsPdf(event) {
   let baseLocations = [
     "Coaches meeting",
-    "Judge check-in",
-    "No teams allowed past here",
-    "Pit admin",
-    "Practice table",
-    "Queueing",
-    "Quiet room",
+    "Jury check-in",
+    "Teams niet toegestaan",
+    "Beheerder oefentafels",
+    "Oefentafels",
+    "Wachtrij",
+    "Stilte ruimte",
     "Robot game",
-    "Team registration",
-    "Volunteer room",
+    "Team registratie",
+    "Vrijwilligersruimte",
   ];
   let doc = new PdfDoc(event.pageFormat, event.title, true);
   event.sessions
@@ -43,7 +43,7 @@ export function MakeLocationSignsPdf(event) {
       s.locations.forEach((loc, i) => {
         // margin: [left, top, right, bottom]
         doc.addContent({
-          text: s.name + " Room " + (i + 1),
+          text: s.name + " Ruimte " + (i + 1),
           style: "signTitle",
           margin: [0, 40, 0, 10],
         });
@@ -63,7 +63,7 @@ export function MakeLocationSignsPdf(event) {
     doc.addPageBreak();
   });
   doc.chomp();
-  doc.filename = "location-signs".replace(/ /g, "-");
+  doc.filename = "Locatie borden".replace(/ /g, "-");
   return doc;
 }
 
@@ -116,7 +116,7 @@ export function MakeParticipationCertPdf(event) {
   event.teams.forEach((t) => {
     // margin: [left, top, right, bottom]
     doc.addContent({
-      text: "Certificate of Participation",
+      text: "Certificaat van deelname",
       style: "certTitle",
       margin: [0, 60, 0, 10],
     });

@@ -7,7 +7,7 @@ export function MakeClosingPresentation(event) {
     event.sponsors.nationals
   );
 
-  doc.addTitle("Closing & Awards Ceremony");
+  doc.addTitle("Afsluiting en prijsuitreiking");
 
   // for (let i = 0; i < event.judgesAwards; i++) {
   //   doc.addTitle('_______ Judges Award');
@@ -20,7 +20,7 @@ export function MakeClosingPresentation(event) {
     doc.addWinner(a);
   });
 
-  doc.addTitle("Closing & Awards Ceremony");
+  doc.addTitle("Afsluiting en prijsuitreiking");
 
   doc.filename = "closing-slides";
 

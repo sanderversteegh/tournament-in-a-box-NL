@@ -14,7 +14,7 @@ export function MakeSessionPDF(event, type) {
     .forEach(session => {
       try {
         doc.addContent({
-          text: session.name + ' Schedule',
+          text: session.name + ' planning',
           style: 'header2',
           margin: [0, 10]
         });
@@ -29,7 +29,7 @@ export function MakeSessionPDF(event, type) {
   if (doc.empty()) return null;
   // Delete the last page break
   doc.chomp();
-  doc.filename = (type.name + '-schedule').replace(/ /g, '-');
+  doc.filename = (type.name + '-planning').replace(/ /g, '-');
   return doc;
 }
 
@@ -92,8 +92,8 @@ export function MakeDaySchedulePdf(event) {
   t.body = [];
   let header = [];
   header.push({ text: 'Start' });
-  header.push({ text: 'End' });
-  header.push({ text: 'Event' });
+  header.push({ text: 'Eind' });
+  header.push({ text: 'Activiteit' });
   t.body.push(header);
 
   let sorted = event.sessions.sort((a, b) => {
@@ -112,16 +112,16 @@ export function MakeDaySchedulePdf(event) {
     }
     t.body.push(row);
   }
-  doc.addContent({ text: 'Day Schedule', style: 'header2', margin: [0, 10] });
+  doc.addContent({ text: 'Dagprogramma', style: 'header2', margin: [0, 10] });
   doc.addContent({ table: t, layout: 'lightHorizontalLines' });
 
   doc.addContent({ text: '\n' });
   doc.addContent({
     text:
-      '* Break: During scheduled break times matches and judging are not happening'
+      '* Tijdens de geplande pauzes vinden er geen wedstrijden of jurybeoordelingen plaats.'
   });
 
-  doc.filename = 'day-schedule'.replace(/ /g, '-');
+  doc.filename = 'Dagprogramma'.replace(/ /g, '-');
   return doc;
 }
 
@@ -131,7 +131,7 @@ export function MakePracticeTableSignupPdf(event) {
   let t = { headerRows: 1, dontBreakRows: true };
   t.widths = ['auto', '*'];
   t.body = [];
-  t.body.push(['Time', 'Team']);
+  t.body.push(['Tijd', 'Team']);
 
   let now = event.startTime.clone();
   while (now.mins < event.endTime.mins - 1) {
@@ -140,18 +140,18 @@ export function MakePracticeTableSignupPdf(event) {
   }
 
   doc.addContent({
-    text: 'Practice table signup sheet',
+    text: 'Oefentafel aanmeldingsformulier',
     style: 'header2',
     margin: [0, 10]
   });
   doc.addContent({ table: t, layout: 'lightHorizontalLines' });
   doc.addContent({
     text:
-      '* Do not book more than 2 times at a time, and no back-to-backs.\n Remember Gracious Professionalism - everyone wants a chance to practice!',
+      '* Boek niet meer dan twee sessies tegelijk en geen sessies direct na elkaar. Iedereen wil graag de kans krijgen om te oefenen!',
     style: 'footer'
   });
 
-  doc.filename = 'practice-tables'.replace(/ /g, '-');
+  doc.filename = 'oefentafel-aanmeldingsformulier'.replace(/ /g, '-');
   return doc;
 }
 
@@ -171,7 +171,7 @@ export function MakeCoreValuesAllocationsPDF(event) {
   //Header row
   let header = [];
   for (let i = 0; i < data[0].length; i++)
-    header.push({ text: 'Judge group ' + (i + 1), alignment: 'center' });
+    header.push({ text: 'Jury groep ' + (i + 1), alignment: 'center' });
   t.body.push(header);
 
   // All individual rows
