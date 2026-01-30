@@ -27,9 +27,6 @@ jobs:
 
       - name: Build app
         run: CI=false yarn build
-
-      - name: Build app
-        run: yarn build
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
