@@ -82,7 +82,7 @@
   "engines": {
     "node": "~16"
   },
-  "homepage": "./",
+  "homepage": "./public/",
   "browserslist": {
     "production": [
       ">0.2%",
