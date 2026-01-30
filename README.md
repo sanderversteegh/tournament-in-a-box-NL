@@ -1,5 +1,20 @@
 Dit is een nederlandse vertaling van het tournement-in-a-box project. Verder is het een copy van het harde werk van de first-australia/tournament-in-a-box. 
+(De export is Nederlands)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Hoe ik het gebruik:
+Lokaal (windows):
+1. Instaleer NVM (https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)
+2. Download de zip en pak deze uit.
+3. Open de map in VS code.
+4. Open een terminal in VS code (ctrl+shift+`)
+5. npm install --global yarn classic
+6. nvm install 16.20.2
+7. nvm use 16.20.2
+8. yarn start
+
+In github:
+https://humble-space-tribble-jr7g5qj4gjg3p6g-3000.app.github.dev/
 
 # tournament-in-a-box
 
