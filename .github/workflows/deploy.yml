@@ -32,12 +32,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Setup yarn
-        run: nvm install 16.20.2
-
-      # Runs a single command using the runners shell
-      - name: Setup yarn
-        run: nvm use 16.20.2
-
-      # Runs a single command using the runners shell
-      - name: Setup yarn
         run: yarn start
