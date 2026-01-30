@@ -14,7 +14,7 @@ Lokaal (windows):
 8. yarn start
 
 In github:
-https://humble-space-tribble-jr7g5qj4gjg3p6g-3000.app.github.dev/
+https://sanderversteegh.github.io/tournament-in-a-box-NL/
 
 # tournament-in-a-box
 
