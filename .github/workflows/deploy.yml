@@ -31,5 +31,11 @@ jobs:
         run: yarn install
 
       # Runs a single command using the runners shell
-      - name: Setup yarn
-        run: yarn start
+      - name: Build app
+        run: yarn build
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build   # of ./dist bij Vite/Vue
