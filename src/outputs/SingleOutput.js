@@ -75,6 +75,7 @@ export class SingleOutput {
     'Dag planning',
     'Alle team planningen',
     'Individueel team planning',
+    'Hanger planning',
     'Teamplek borden',
     'Vrijwilligers lijst',
     'Locatie borden',
