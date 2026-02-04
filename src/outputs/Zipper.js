@@ -8,7 +8,7 @@ import {
 import {
   MakeTeamListPDF,
   MakeAllTeamsPDF,
-  MakeIndivTeamsPDF
+  MakeIndivTeamsPDF,
   MakeHangerPDF
 } from './TeamOutputs';
 import {
