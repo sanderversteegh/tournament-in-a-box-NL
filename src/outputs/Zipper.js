@@ -9,6 +9,7 @@ import {
   MakeTeamListPDF,
   MakeAllTeamsPDF,
   MakeIndivTeamsPDF
+  MakeHangerPDF
 } from './TeamOutputs';
 import {
   MakePitSignsPdf,
@@ -51,6 +52,7 @@ export class Zipper {
         ),
       () => this.zipPDF(MakeAllTeamsPDF(event), '', 4),
       () => this.zipPDF(MakeIndivTeamsPDF(event), '', 2),
+      () => this.zipPDF(MakeHangerPDF(event), '', 2),
       () => this.zipPDF(MakePitSignsPdf(event), 'signage', 2),
       () => this.zipPDF(MakeVolunteerListPdf(event), 'volunteers', 2),
       () => this.zipPDF(MakeLocationSignsPdf(event), 'signage', 2),

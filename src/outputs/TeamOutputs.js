@@ -108,6 +108,69 @@ export function MakeIndivTeamsPDF(event) {
   return doc;
 }
 
+export function MakeHangerPDF(event) {
+  let doc = new PdfDoc(event.pageFormat, event.title, false);
+
+  event.teams.forEach(t => {
+    //Team planning
+    doc.addContent({
+      text: t.number + ': ' + t.name,
+      style: 'header2',
+      margin: [0, 10]
+    });
+    doc.addContent(teamPage(event, t));
+    doc.addContent({ text: ' ', pageBreak: 'after' });
+
+    //Dag planning
+    t.widths = new Array(3);
+    t.widths[0] = 100;
+    t.widths[1] = 100;
+    t.widths[2] = 300;
+    t.body = [];
+    let header = [];
+    header.push({ text: 'Start' });
+    header.push({ text: 'Eind' });
+    header.push({ text: 'Activiteit' });
+    t.body.push(header);
+
+    let sorted = event.sessions.sort((a, b) => {
+      return a.actualStartTime.mins - b.actualStartTime.mins;
+    });
+    for (let i = 0; i < sorted.length; i++) {
+      let row = [];
+      if (sorted[i].type === TYPES.BREAK) {
+        row.push({ text: sorted[i].actualStartTime.time, fillColor: '#eeeeee' });
+        row.push({ text: sorted[i].actualEndTime.time, fillColor: '#eeeeee' });
+        row.push({ text: sorted[i].name + ' *', fillColor: '#eeeeee' });
+      } else {
+        row.push(sorted[i].actualStartTime.time);
+        row.push(sorted[i].actualEndTime.time);
+        row.push(sorted[i].name);
+      }
+      t.body.push(row);
+    }
+
+
+
+
+    doc.addContent({ text: 'Dagprogramma', style: 'header2', margin: [0, 10] });
+    doc.addContent({ table: t, layout: 'lightHorizontalLines' });
+
+    doc.addContent({ text: '\n' });
+    doc.addContent({
+      text:
+        '* Tijdens de geplande pauzes vinden er geen wedstrijden of jurybeoordelingen plaats.'
+    });
+
+
+    doc.addContent({ text: ' ', pageBreak: 'after' });
+  });
+  // Delete the last page break
+  doc.chomp();
+  doc.filename = 'hanger-planning'.replace(/ /g, '-');
+  return doc;
+}
+
 function teamPage(event, team) {
   let schedule = [];
   for (let i = 0; i < team.schedule.length; i++)

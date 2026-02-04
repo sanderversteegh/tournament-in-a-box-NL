@@ -8,7 +8,8 @@ import {
 import {
   MakeTeamListPDF,
   MakeAllTeamsPDF,
-  MakeIndivTeamsPDF
+  MakeIndivTeamsPDF,
+  MakeHangerPDF
 } from './TeamOutputs';
 import {
   MakePitSignsPdf,
@@ -46,6 +47,7 @@ export class SingleOutput {
         ),
       () => this.getPDF(MakeAllTeamsPDF(event), 4),
       () => this.getPDF(MakeIndivTeamsPDF(event), 2),
+      () => this.getPDF(MakeHangerPDF(event), 2),
       () => this.getPDF(MakePitSignsPdf(event), 2),
       () => this.getPDF(MakeVolunteerListPdf(event), 2),
       () => this.getPDF(MakeLocationSignsPdf(event), 2),

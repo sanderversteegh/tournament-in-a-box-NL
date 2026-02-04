@@ -125,6 +125,7 @@ export function MakeDaySchedulePdf(event) {
   return doc;
 }
 
+
 export function MakePracticeTableSignupPdf(event) {
   let doc = new PdfDoc(event.pageFormat, event.title, false);
 
